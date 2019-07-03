@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function(){return view('dashboard');});
+
+Route::get('/tambah_tiket', function(){return view('tambah_tiket');});
