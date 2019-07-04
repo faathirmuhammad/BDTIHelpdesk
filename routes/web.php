@@ -18,3 +18,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function(){return view('dashboard');});
 
 Route::get('/tambah_tiket', function(){return view('tambah_tiket');});
+
+Route::get('/tambah_barang', function(){return view('tambah_barang');});
+
+Route::get('/tambah_petugas', function(){return view('tambah_petugas');});
+
