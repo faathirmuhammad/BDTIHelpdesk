@@ -21,3 +21,5 @@ Route::get('/view_tiket', function(){return view('view_tiket');});
 Route::get('/tambah_tiket', function(){return view('tambah_tiket');});
 Route::get('/tambah_barang', function(){return view('tambah_barang');});
 Route::get('/tambah_petugas', function(){return view('tambah_petugas');});
+Route::get('/daftar_barang', function(){return view('daftar_barang');});
+Route::get('/daftar_petugas', function(){return view('daftar_petugas');});
