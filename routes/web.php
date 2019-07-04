@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function(){return view('dashboard');});
+Route::get('/daftar_tiket', function(){return view('daftar_tiket');});
+Route::get('/view_tiket', function(){return view('view_tiket');});
