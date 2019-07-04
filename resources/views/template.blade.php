@@ -23,6 +23,7 @@
 
     <!-- Custom CSS -->
     <link href="{{asset('template/dist/css/style.css')}}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
 </head>
 
 <body>
@@ -224,6 +225,17 @@
 <!-- Init JavaScript -->
 <script src="{{asset('template/dist/js/init.js')}}"></script>
 <script src="{{asset('template/dist/js/dashboard-data.js')}}"></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+
+<script>
+    $("document").ready(function(){
+        $('#myTable').DataTable( {
+            scrollY: 300,
+            paging: true
+        } );
+    })
+</script>
 
 </body>
 
