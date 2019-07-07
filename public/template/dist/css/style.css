@@ -18140,7 +18140,7 @@ table.dataTable {
     text-align: left; } }
 /*Faq*/
 .faq-search-wrap {
-  padding: 50px 0 60px; }
+  padding: 25px 0 25px; }
   .faq-search-wrap .form-group .form-control, .faq-search-wrap .form-group .dd-handle {
     border-top-right-radius: .25rem;
     border-bottom-right-radius: .25rem; }

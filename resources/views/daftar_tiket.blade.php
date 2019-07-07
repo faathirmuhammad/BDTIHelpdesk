@@ -18,32 +18,27 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td><a href="#">12019</a></td>
-                                    <td>Sistem Operasi</td>
-                                    <td><span class="badge badge-success">OPEN</span></td>
-                                    <td>25/04/2011</td>
-                                </tr><tr>
-                                    <td>2</td>
-                                    <td><a href="#">22019</a></td>
-                                    <td>Internet dan Jaringan</td>
-                                    <td><span class="badge badge-danger">CLOSED</span></td>
-                                    <td>25/04/2011</td>
-                                </tr><tr>
-                                    <td>3</td>
-                                    <td><a href="#">32019</a></td>
-                                    <td>Hardware</td>
-                                    <td><span class="badge badge-secondary">ON HOLD</span></td>
-                                    <td>25/04/2011</td>
-                                </tr><tr>
-                                    <td>4</td>
-                                    <td><a href="#">42019</a></td>
-                                    <td>Software</td>
-                                    <td><span class="badge badge-warning">PENDING</span></td>
-                                    <td>25/04/2011</td>
-                                </tr>
-
+                                @php $x=1; @endphp
+                                @foreach($tiket as $tik)
+                                    <tr>
+                                        <td>{{$x}}</td>
+                                        <td><a href="{{route('view_tiket',$tik->id)}}">{{$tik->nomor}}</a></td>
+                                        <td>{{$tik->daftar_kasuses->kasus}}</td>
+                                        <td>
+                                            @if($tik->status == 1)
+                                                <span class="badge badge-success text-uppercase">{{$tik->status_kasuses->status}}</span>
+                                            @elseif($tik->status == 2)
+                                                <span class="badge badge-warning text-uppercase">{{$tik->status_kasuses->status}}</span>
+                                            @elseif($tik->status == 3)
+                                                <span class="badge badge-secondary text-uppercase">{{$tik->status_kasuses->status}}</span>
+                                            @elseif($tik->status == 4)
+                                                <span class="badge badge-danger text-uppercase">{{$tik->status_kasuses->status}}</span>
+                                            @endif
+                                        </td>
+                                        <td>{{$tik->created_at->format("d/m/Y")}}</td>
+                                    </tr>
+                                @php $x++ @endphp
+                                @endforeach
                                 </tbody>
                                 <tfoot>
                                 <tr>
