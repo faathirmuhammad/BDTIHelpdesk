@@ -34,3 +34,5 @@ Route::post('/ajax/list_pelapor', 'TiketController@autocomplete')->name('ajax_li
 Route::post('/ajax/list_nama', 'TiketController@autofilldata')->name('ajax_list_nama');
 Route::post('/ajax/ganti_status', 'TiketController@gantistatus')->name('ajax_ganti_status');
 
+Route::get('/tambah_barang', function(){return view('tambah_barang');});
+Route::get('/tambah_petugas', function(){return view('tambah_petugas');});
