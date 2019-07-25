@@ -51,7 +51,11 @@
                                 </select>
                             </li>
                             <li class="list-group-item">
-                                <a href="#" class="btn btn-gradient-info font-weight-bold text-uppercase btn-sm btn-block">Cetak</a>
+                                <form action="{{route('cetak_tiket')}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$tiket->id}}">
+                                    <button type="submit" class="btn btn-gradient-info font-weight-bold text-uppercase btn-sm btn-block">Cetak</button>
+                                </form>
                             </li>
                         </ul>
                     </div>

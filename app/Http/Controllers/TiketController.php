@@ -10,6 +10,7 @@ use App\Siap;
 use App\Sigota;
 use App\StatusKasus;
 use App\Tiket;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\JenisTiket;
 use Illuminate\Support\Facades\DB;
@@ -107,6 +108,11 @@ class TiketController extends Controller
         $tiket->status = $request->statusnya;
         $tiket->save();
         return json_encode("success");
+    }
+
+    public function cetak_tiket(Request $request){
+        $tiket = Tiket::find($request->id);
+        return PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'defaultFont'=> 'Helvetica'])->loadView('cetak_tiket_1', ['tiket'=>$tiket])->stream();
     }
 
 }

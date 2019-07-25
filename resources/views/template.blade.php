@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>BDTI</title>
+    <title>BDTI - @yield('title')</title>
     <meta name="description" content="Bidang Data dan Teknologi Informasi" />
 
     <!-- Favicon -->
@@ -48,7 +48,7 @@
     <!-- Top Navbar -->
     <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar">
         <a id="navbar_toggle_btn" class="navbar-toggle-btn nav-link-hover" href="javascript:void(0);"><i class="ion ion-ios-menu"></i></a>
-        <a class="navbar-brand" href="dashboard1.html">
+        <a class="navbar-brand" href="#ss">
             BDTI
         </a>
         <ul class="navbar-nav hk-navbar-content">
@@ -85,8 +85,8 @@
                 <ul class="navbar-nav flex-column">
                     <li class="nav-item">
                         <ul class="navbar-nav flex-column">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="documentation.html">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
                                     <i class="ion ion-ios-keypad text-muted"></i>
                                     <span class="nav-link-text">Dashboard</span>
                                 </a>
@@ -112,7 +112,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item {{ request()->is('barang/*') ? ' active' : '' }}">
                         <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#dash_drpd">
                             <i class="ion ion-ios-cube text-muted"></i>
                             <span class="nav-link-text">Persediaan</span>
@@ -120,34 +120,33 @@
                         <ul id="dash_drpd" class="nav flex-column collapse collapse-level-1">
                             <li class="nav-item">
                                 <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Tambah Persediaan</a>
+                                    <li class="nav-item {{ request()->is('barang/tambah_barang') ? ' active' : '' }}">
+                                        <a class="nav-link" href="{{route('tambah_barang')}}">Tambah Persediaan</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Daftar Persediaan</a>
+                                    <li class="nav-item {{ request()->is('barang/daftar_barang/*') ? ' active' : '' }}">
+                                        <a class="nav-link" href="{{route('daftar_barang')}}">Daftar Persediaan</a>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#dash_drpe">
-                            <i class="ion ion-ios-contacts text-muted"></i>
+                    <li class="nav-item {{ request()->is('petugas/*') ? ' active' : '' }}">
+                        <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#dash_drps">
+                            <i class="ion ion-ios-person text-muted"></i>
                             <span class="nav-link-text">Petugas</span>
                         </a>
-                        <ul id="dash_drpe" class="nav flex-column collapse collapse-level-1">
+                        <ul id="dash_drps" class="nav flex-column collapse collapse-level-1">
                             <li class="nav-item">
                                 <ul class="nav flex-column">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="#">Tambah Petugas</a>
+                                    <li class="nav-item {{ request()->is('petugas/tambah_petugas') ? ' active' : '' }}">
+                                        <a class="nav-link" href="{{route('tambah_petugas')}}">Tambah Petugas</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Daftar Petugas</a>
+                                    <li class="nav-item {{ request()->is('petugas/daftar_petugas/*') ? ' active' : '' }}">
+                                        <a class="nav-link" href="{{route('daftar_petugas')}}">Daftar Petugas</a>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
-
                     </li>
                 </ul>
                 <hr class="nav-separator">
