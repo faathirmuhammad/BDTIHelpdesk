@@ -13,6 +13,7 @@
 
     <!-- vector map CSS -->
     <link href="{{asset('template/vendors/vectormap/jquery-jvectormap-2.0.3.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('template/vendors/morris.js/morris.css')}}" rel="stylesheet" type="text/css" />
 
     <!-- Toggles CSS -->
     <link href="{{asset('template/vendors/jquery-toggles/css/toggles.css')}}" rel="stylesheet" type="text/css">
@@ -233,6 +234,11 @@
 <script src="{{asset('template/vendors/jasny-bootstrap/dist/js/jasny-bootstrap.min.js')}}"></script>
 <script src="{{asset('template/vendors/select2/dist/js/select2.full.min.js')}}"></script>
 <script src="{{asset('template/dist/js/select2-data.js')}}"></script>
+<script src="{{asset('template/vendors/raphael/raphael.min.js')}}"></script>
+<script src="{{asset('template/vendors/morris.js/morris.min.js')}}"></script>
+<script src="{{asset('template/vendors/apexcharts/dist/apexcharts.min.js')}}"></script>
+<script src="{{asset('template/vendors/echarts/dist/echarts-en.min.js')}}"></script>
+<script src="{{asset('template/dist/js/dashboard2-data.js')}}"></script>
 
 
 <script>
