@@ -125,7 +125,13 @@
     </tr>
     <tr>
         <td class="bold" height="7%" valign="top">PERMASALAHAN</td>
-        <td colspan="3" valign="top">{!! $tiket->permasalahan !!}</td>
+        <td colspan="3" valign="top">
+            @if(strlen($tiket->permasalahan)<=300)
+                {!! $tiket->permasalahan !!}
+            @else
+                {!! substr($tiket->permasalahan,0,300) . '...'; !!}
+            @endif
+        </td>
     </tr>
     <tr>
         <td class="bold">DESKRIPSI</td>
@@ -175,7 +181,7 @@
             <table width="100%" style="margin-bottom: 50px;">
                 <tr>
                     <td width="60%" class="bold" style="border: 0px;">NAMA PEMOHON : {{$pelapor->nama}}</td>
-                    <td class="bold" style="border: 0px;">TEKNISI : {{$tiket->petugas->nama}}</td>
+                    <td class="bold" style="border: 0px;">TEKNISI : {{$tiket->petugases->nama}}</td>
                 </tr>
                 <tr>
                     <td class="bold" style="border: 0px;">TTD / PARAF:</td>

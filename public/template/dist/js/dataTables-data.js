@@ -12,6 +12,18 @@ $(document).ready(function() {
 
 		}
 	});
+
+	$('#datable_1_copy').DataTable({
+		responsive: true,
+		autoWidth: false,
+		language: { search: "",
+			searchPlaceholder: "Search",
+			sLengthMenu: "_MENU_items"
+
+		}
+	});
+
+
     $('#datable_2').DataTable({ 
 		autoWidth: false,
 		lengthChange: false,

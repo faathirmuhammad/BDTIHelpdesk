@@ -14,6 +14,7 @@
                                     <th>Nama Petugas</th>
                                     <th>Spesialisasi</th>
                                     <th>Phone</th>
+                                    <th>Edit</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -24,6 +25,7 @@
                                         <td>{{$pet->nama}}</td>
                                         <td>{{$pet->spesialisasi}}</td>
                                         <td>{{$pet->phone}}</td>
+                                        <td><a href="{{route('petugas_edit',$pet->id)}}" class="btn btn-gradient-primary"><i class="fa fa-pencil"></i></a></td>
                                     </tr>
                                     @php $x++ @endphp
                                 @endforeach
@@ -34,6 +36,7 @@
                                     <th>Nama Petugas</th>
                                     <th>Spesialisasi</th>
                                     <th>Phone</th>
+                                    <th>Edit</th>
                                 </tr>
                                 </tfoot>
                             </table>

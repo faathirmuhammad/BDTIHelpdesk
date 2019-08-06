@@ -122,6 +122,7 @@ $(document).ready(function(){
     $(".tambah_barang").on("change", function () {
         var jumlah = $(this).children("option:selected").data("value");
         $(".jumlah_barang").prop('max',jumlah);
+        $("#jumlah_maksimum").text(jumlah);
     })
 
     //VIEW TIKET

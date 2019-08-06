@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\BarangKeluar;
 use App\DaftarKasus;
 use App\PelaporLain;
+use App\Persediaan;
 use App\PersediaanBarang;
 use App\Petugas;
 use App\Siap;
@@ -19,10 +21,13 @@ class TiketController extends Controller
 {
     public function tambah(){
         $jenistiket = JenisTiket::all();
-        $petugas = Petugas::orderBy('nama', 'asc')->get();
         $kategori = DaftarKasus::all();
         $status = StatusKasus::all();
-        $barang = PersediaanBarang::orderBy('id', 'desc')->where('jumlah_barang_masuk', '!=', '0')->get();
+//        SELECT * FROM petugas a LEFT JOIN tikets b ON a.id = b.petugas WHERE b.petugas IS NULL OR b.status != 1
+
+        $petugas = DB::table('petugas')->leftJoin('tikets', 'petugas.id', '=', 'tikets.petugas')->Where('tikets.petugas','=',NULL)->orWhere('tikets.status','!=','1')->get();
+
+        $barang = PersediaanBarang::orderBy('nama_barang', 'asc')->get();
         return view('tambah_tiket', [
             'jenistiket'=>$jenistiket,
             'petugas'=>$petugas,
@@ -80,14 +85,18 @@ class TiketController extends Controller
         $tiket->barang = $request->barang;
         $tiket->jumlah = $request->jumlah;
 
-        if($request->kasus == 1){
-            $query = DB::table('persediaan_barangs')->where('id', $request->barang)->decrement('jumlah_barang_masuk', $request->jumlah);
-        }
-
-        $tiket->petugases = $request->petugas;
+        $tiket->petugas = $request->petugas;
         $tiket->status = $request->status;
         $tiket->jenis = $request->jenis;
         $tiket->save();
+
+        if($request->kasus == 1){
+            $bar = new BarangKeluar();
+            $bar->tiket_id = $tiket->id;
+            $bar->barang_id = $request->barang;
+            $bar->jumlah = $request->jumlah;
+            $bar->save();
+        }
 
         return redirect()->route('daftar_tiket');
     }

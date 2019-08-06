@@ -17,10 +17,6 @@ class CreatePersediaanBarangsTable extends Migration
             $table->bigIncrements('id');
             $table->string('nama_barang');
             $table->string('satuan');
-            $table->date('tanggal_spk');
-            $table->string('nomor_spk');
-            $table->date('tanggal_barang_masuk');
-            $table->integer('jumlah_barang_masuk');
             $table->timestamps();
         });
     }

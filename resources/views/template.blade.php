@@ -9,23 +9,26 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{asset('template/favicon.ico')}}">
-    <link rel="icon" href="{{asset('template/favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('/template/favicon.ico')}}" type="image/x-icon">
 
     <!-- vector map CSS -->
     <link href="{{asset('template/vendors/vectormap/jquery-jvectormap-2.0.3.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('template/vendors/morris.js/morris.css')}}" rel="stylesheet" type="text/css" />
 
     <!-- Toggles CSS -->
-    <link href="{{asset('template/vendors/jquery-toggles/css/toggles.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{asset('template/vendors/jquery-toggles/css/themes/toggles-light.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('/template/vendors/jquery-toggles/css/toggles.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('/template/vendors/jquery-toggles/css/themes/toggles-light.css')}}" rel="stylesheet" type="text/css">
 
     <!-- Toastr CSS -->
-    <link href="{{asset('template/vendors/jquery-toast-plugin/dist/jquery.toast.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{asset('template/vendors/select2/dist/css/select2.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('/template/vendors/jquery-toast-plugin/dist/jquery.toast.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('/template/vendors/select2/dist/css/select2.min.css')}}" rel="stylesheet" type="text/css">
+
+
+    <link rel="stylesheet" href="{{asset('/template/vendors/datatables.net-dt/css/jquery.dataTables.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/template/vendors/datatables.net-responsive-dt/css/responsive.dataTables.min.css')}}">
 
     <!-- Custom CSS -->
-    <link href="{{asset('template/dist/css/style.css')}}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
+    <link href="{{asset('/template/dist/css/style.css')}}" rel="stylesheet" type="text/css">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 
@@ -185,47 +188,71 @@
 <!-- /HK Wrapper -->
 
 <!-- jQuery -->
-<script src="{{asset('template/vendors/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{asset('/template/vendors/jquery/dist/jquery.min.js')}}"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="{{asset('template/vendors/popper.js/dist/umd/popper.min.js')}}"></script>
-<script src="{{asset('template/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('/template/vendors/popper.js/dist/umd/popper.min.js')}}"></script>
+<script src="{{asset('/template/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 
 <!-- Slimscroll JavaScript -->
-<script src="{{asset('template/dist/js/jquery.slimscroll.js')}}"></script>
+<script src="{{asset('/template/dist/js/jquery.slimscroll.js')}}"></script>
+
+<!-- Data Table JavaScript -->
+<script src="{{asset('/template/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('/template/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('/template/vendors/datatables.net-dt/js/dataTables.dataTables.min.js')}}"></script>
+<script src="{{asset('/template/vendors/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
+<script src="{{asset('/template/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{asset('/template/vendors/datatables.net-buttons/js/buttons.flash.min.js')}}"></script>
+<script src="{{asset('/template/vendors/jszip/dist/jszip.min.js')}}"></script>
+<script src="{{asset('/template/vendors/pdfmake/build/pdfmake.min.js')}}"></script>
+<script src="{{asset('/template/vendors/pdfmake/build/vfs_fonts.js')}}"></script>
+<script src="{{asset('/template/vendors/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
+<script src="{{asset('/template/vendors/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
+<script src="{{asset('/template/vendors/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{asset('/template/dist/js/dataTables-data.js')}}"></script>
 
 <!-- Fancy Dropdown JS -->
-<script src="{{asset('template/dist/js/dropdown-bootstrap-extended.js')}}"></script>
+<script src="{{asset('/template/dist/js/dropdown-bootstrap-extended.js')}}"></script>
 
 <!-- FeatherIcons JavaScript -->
-<script src="{{asset('template/dist/js/feather.min.js')}}"></script>
+<script src="{{asset('/template/dist/js/feather.min.js')}}"></script>
 
 <!-- Toggles JavaScript -->
-<script src="{{asset('template/vendors/jquery-toggles/toggles.min.js')}}"></script>
-<script src="{{asset('template/vendors/waypoints/lib/jquery.waypoints.min.js')}}"></script>
+<script src="{{asset('/template/vendors/jquery-toggles/toggles.min.js')}}"></script>
+<script src="{{asset('/template/vendors/waypoints/lib/jquery.waypoints.min.js')}}"></script>
 
 <!-- Counter Animation JavaScript -->
-<script src="{{asset('template/vendors/waypoints/lib/jquery.waypoints.min.js')}}"></script>
-<script src="{{asset('template/vendors/jquery.counterup/jquery.counterup.min.js')}}"></script>
+<script src="{{asset('/template/vendors/waypoints/lib/jquery.waypoints.min.js')}}"></script>
+<script src="{{asset('/template/vendors/jquery.counterup/jquery.counterup.min.js')}}"></script>
 
 <!-- Sparkline JavaScript -->
-<script src="{{asset('template/vendors/jquery.sparkline/dist/jquery.sparkline.min.js')}}"></script>
+<script src="{{asset('/template/vendors/jquery.sparkline/dist/jquery.sparkline.min.js')}}"></script>
 
 <!-- Vector Maps JavaScript -->
-<script src="{{asset('template/vendors/vectormap/jquery-jvectormap-2.0.3.min.js')}}"></script>
-<script src="{{asset('template/vendors/vectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
-<script src="{{asset('template/vendors/vectormap/jquery-jvectormap-de-merc.js')}}"></script>
-<script src="{{asset('template/dist/js/vectormap-data.js')}}"></script>
+<script src="{{asset('/template/vendors/vectormap/jquery-jvectormap-2.0.3.min.js')}}"></script>
+<script src="{{asset('/template/vendors/vectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+<script src="{{asset('/template/vendors/vectormap/jquery-jvectormap-de-merc.js')}}"></script>
+<script src="{{asset('/template/dist/js/vectormap-data.js')}}"></script>
 
 <!-- Owl JavaScript -->
-<script src="{{asset('template/vendors/owl.carousel/dist/owl.carousel.min.js')}}"></script>
+<script src="{{asset('/template/vendors/owl.carousel/dist/owl.carousel.min.js')}}"></script>
 
 <!-- Toastr JS -->
-<script src="{{asset('template/vendors/jquery-toast-plugin/dist/jquery.toast.min.js')}}"></script>
+<script src="{{asset('/template/vendors/jquery-toast-plugin/dist/jquery.toast.min.js')}}"></script>
 
 <!-- Init JavaScript -->
-<script src="{{asset('template/dist/js/init.js')}}"></script>
-{{--<script src="{{asset('template/dist/js/dashboard-data.js')}}"></script>--}}
+<script src="{{asset('/template/dist/js/init.js')}}"></script>
+<script src="{{asset('template/dist/js/dashboard-data.js')}}"></script>
+
+<script src="{{asset('/template/dist/js/bdti.js')}}"></script>
+
+<script src="{{asset('/template/vendors/tinymce/tinymce.min.js')}}"></script>
+<script src="{{asset('/template/dist/js/tinymce-data.js')}}"></script>
+<script src="{{asset('/template/vendors/jasny-bootstrap/dist/js/jasny-bootstrap.min.js')}}"></script>
+<script src="{{asset('/template/vendors/select2/dist/js/select2.full.min.js')}}"></script>
+<script src="{{asset('/template/dist/js/select2-data.js')}}"></script>
+
 <script src="{{asset('template/dist/js/bdti.js')}}"></script>
 
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
@@ -240,15 +267,6 @@
 <script src="{{asset('template/vendors/echarts/dist/echarts-en.min.js')}}"></script>
 <script src="{{asset('template/dist/js/dashboard2-data.js')}}"></script>
 
-
-<script>
-    $("document").ready(function(){
-        $('#myTable').DataTable( {
-            scrollY: 300,
-            paging: true
-        } );
-    })
-</script>
 
 </body>
 
