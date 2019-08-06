@@ -49,4 +49,3 @@ Route::get('/pelaporlain', 'PelaporLainController@daftar_pelaporlain')->name('da
 Route::post('/ajax/list_pelapor', 'TiketController@autocomplete')->name('ajax_list_pelapor');
 Route::post('/ajax/list_nama', 'TiketController@autofilldata')->name('ajax_list_nama');
 Route::post('/ajax/ganti_status', 'TiketController@gantistatus')->name('ajax_ganti_status');
-
