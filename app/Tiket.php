@@ -20,7 +20,7 @@ class Tiket extends Model
         return $this->belongsTo('App\JenisTiket', 'jenis', 'id');
     }
 
-    public function petugas(){
-        return $this->belongsTo('App\Petugas', 'petugases', 'id');
+    public function petugases(){
+        return $this->belongsTo('App\Petugas', 'petugas', 'id');
     }
 }

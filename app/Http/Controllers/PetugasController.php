@@ -27,4 +27,21 @@ class PetugasController extends Controller
     public function petugas(){
         return view('tambah_petugas');
     }
+
+    public function edit_petugas($id)
+    {
+        $petugas = Petugas::find($id);
+        return view('edit_petugas', ['petugas'=>$petugas]);
+    }
+
+    public function edit(Request $request)
+    {
+        $petugas = Petugas::find($request->id);
+        $petugas->nama = $request->nama;
+        $petugas->phone = $request->phone;
+        $petugas->spesialisasi = $request->spesialisasi;
+        $petugas->save();
+
+        return redirect()->route('daftar_petugas');
+    }
 }
