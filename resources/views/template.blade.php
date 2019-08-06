@@ -12,7 +12,8 @@
     <link rel="icon" href="{{asset('/template/favicon.ico')}}" type="image/x-icon">
 
     <!-- vector map CSS -->
-    <link href="{{asset('/template/vendors/vectormap/jquery-jvectormap-2.0.3.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('template/vendors/vectormap/jquery-jvectormap-2.0.3.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('template/vendors/morris.js/morris.css')}}" rel="stylesheet" type="text/css" />
 
     <!-- Toggles CSS -->
     <link href="{{asset('/template/vendors/jquery-toggles/css/toggles.css')}}" rel="stylesheet" type="text/css">
@@ -242,7 +243,8 @@
 
 <!-- Init JavaScript -->
 <script src="{{asset('/template/dist/js/init.js')}}"></script>
-{{--<script src="{{asset('template/dist/js/dashboard-data.js')}}"></script>--}}
+<script src="{{asset('template/dist/js/dashboard-data.js')}}"></script>
+
 <script src="{{asset('/template/dist/js/bdti.js')}}"></script>
 
 <script src="{{asset('/template/vendors/tinymce/tinymce.min.js')}}"></script>
@@ -250,6 +252,20 @@
 <script src="{{asset('/template/vendors/jasny-bootstrap/dist/js/jasny-bootstrap.min.js')}}"></script>
 <script src="{{asset('/template/vendors/select2/dist/js/select2.full.min.js')}}"></script>
 <script src="{{asset('/template/dist/js/select2-data.js')}}"></script>
+
+<script src="{{asset('template/dist/js/bdti.js')}}"></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+<script src="{{asset('template/vendors/tinymce/tinymce.min.js')}}"></script>
+<script src="{{asset('template/dist/js/tinymce-data.js')}}"></script>
+<script src="{{asset('template/vendors/jasny-bootstrap/dist/js/jasny-bootstrap.min.js')}}"></script>
+<script src="{{asset('template/vendors/select2/dist/js/select2.full.min.js')}}"></script>
+<script src="{{asset('template/dist/js/select2-data.js')}}"></script>
+<script src="{{asset('template/vendors/raphael/raphael.min.js')}}"></script>
+<script src="{{asset('template/vendors/morris.js/morris.min.js')}}"></script>
+<script src="{{asset('template/vendors/apexcharts/dist/apexcharts.min.js')}}"></script>
+<script src="{{asset('template/vendors/echarts/dist/echarts-en.min.js')}}"></script>
+<script src="{{asset('template/dist/js/dashboard2-data.js')}}"></script>
 
 
 </body>

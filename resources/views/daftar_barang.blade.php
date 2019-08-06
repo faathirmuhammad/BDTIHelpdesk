@@ -62,7 +62,6 @@
             </section>
         </div>
     </div>
-
     <div class="modal fade" id="modal_tambah_barang" tabindex="-1" role="dialog" aria-labelledby="modal_tambah_barang"
          aria-hidden="true">
         <div class="modal-dialog" role="document">

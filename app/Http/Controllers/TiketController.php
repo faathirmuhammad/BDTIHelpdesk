@@ -102,7 +102,7 @@ class TiketController extends Controller
     }
 
     public function daftar_tiket(){
-        $tiket = Tiket::all();
+        $tiket = Tiket::OrderBy('created_at', 'desc')->get();
         return view('daftar_tiket', ['tiket'=>$tiket]);
     }
 

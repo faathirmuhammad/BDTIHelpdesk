@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/user', function () {
+    return view('user');
+});
 
 Route::get('/dashboard', function(){return view('dashboard');});
 
@@ -42,8 +45,11 @@ Route::post('/petugas/tambah_petugas/new', 'PetugasController@tambah_petugas')->
 Route::get('/petugas/daftar_petugas/{id}', 'PetugasController@edit_petugas')->name('petugas_edit');
 Route::post('/petugas/daftar_petugas/edit', 'PetugasController@edit')->name('edit_petugas');
 
+Route::get('/siap', 'SiapController@daftar_pegawai')->name('daftar_pegawai');
+Route::get('/sigota', 'SigotaController@daftar_anggota')->name('daftar_anggota');
+Route::get('/pelaporlain', 'PelaporLainController@daftar_pelaporlain')->name('daftar_pelaporlain');
+
 //ajax
 Route::post('/ajax/list_pelapor', 'TiketController@autocomplete')->name('ajax_list_pelapor');
 Route::post('/ajax/list_nama', 'TiketController@autofilldata')->name('ajax_list_nama');
 Route::post('/ajax/ganti_status', 'TiketController@gantistatus')->name('ajax_ganti_status');
-
