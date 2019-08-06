@@ -42,4 +42,9 @@ class PersediaanBarangController extends Controller
 
         return redirect()->route('view_persediaan', $request->barang_id);
     }
+
+    public function delete(Request $request){
+        $barang = PersediaanBarang::destroy($request->id);
+        return redirect()->route('daftar_barang');
+    }
 }

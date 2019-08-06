@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-sm">
                         <div class="table-wrap">
-                            <table id="myTable" class="table table-hover w-100 display pb-30">
+                            <table id="datable_1" class="table table-hover w-100 display pb-30">
                                 <thead>
                                 <tr>
                                     <th width="10">No</th>

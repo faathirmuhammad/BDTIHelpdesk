@@ -5,7 +5,7 @@ $(document).ready(function(){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    
+
     //TAMBAH TIKET
     $("#tambah_jenis_tiket").on("change", function () {
         var selected_jenis = $(this).children("option:selected").val();
@@ -131,18 +131,22 @@ $(document).ready(function(){
         var status = $(this).children("option:selected").val();
         var id = $(this).data("value");
 
-        $.ajax({
-            type:'POST',
-            url:'/ajax/ganti_status',
-            data:{
-                id: id,
-                statusnya: status
-            },
-            success:function(data){
-                var response = JSON.parse(data);
-                console.log(response);
-            }
-        });
+        if(status == 4){
+            $("#closed").modal("show");
+        }else{
+            $.ajax({
+                type:'POST',
+                url:'/ajax/ganti_status',
+                data:{
+                    id: id,
+                    statusnya: status
+                },
+                success:function(data){
+                    var response = JSON.parse(data);
+                    console.log(response);
+                }
+            });
+        }
 
     })
 
@@ -168,6 +172,6 @@ $(document).ready(function(){
             return false;
         }
     });
-    
+
 })
 

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+<title>{{$tiket->nomor}}</title>
 </head>
 
 <body class="font">
@@ -38,16 +38,16 @@
         </td>
     </tr>
 </table>
-<table width="20%" style="margin-top:10px; margin-bottom: 5px;">
+<table width="35%" style="margin-top:10px; margin-bottom: 5px;">
     <tr style="font-size:11px;">
         <td style="font-weight: bold;">NOMOR</td>
         <td>:</td>
         <td>{{$tiket->nomor}}</td>
     </tr>
     <tr style="font-size:11px;">
-        <td style="font-weight: bold;">TANGGAL</td>
+        <td style="font-weight: bold;">TANGGAL / JAM</td>
         <td>:</td>
-        <td>{{$tiket->created_at->format("d/m/Y")}}</td>
+        <td>{{$tiket->created_at->format("d/m/Y")}} - {{$tiket->created_at->format("H:i")}} WIB</td>
     </tr>
 </table>
 <table width="100%" class="isi">

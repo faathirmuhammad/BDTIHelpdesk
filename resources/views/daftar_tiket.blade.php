@@ -13,8 +13,8 @@
                                     <th width="10">No</th>
                                     <th>Nomor Tiket</th>
                                     <th>Nama Pelapor</th>
-                                    <th>Jenis Pelapor</th>
-                                    <th>Kategori</th>
+                                    <th class="text-center">Jenis Pelapor</th>
+                                    <th class="text-center">Kategori</th>
                                     <th>Status</th>
                                     <th>Tanggal</th>
                                 </tr>
@@ -81,8 +81,8 @@
                                     <th>No</th>
                                     <th>Nomor Tiket</th>
                                     <th>Nama Pelapor</th>
-                                    <th>Jenis Pelapor</th>
-                                    <th>Kategori</th>
+                                    <th class="text-center">Jenis Pelapor</th>
+                                    <th class="text-center">Kategori</th>
                                     <th>Status</th>
                                     <th>Tanggal</th>
                                 </tr>

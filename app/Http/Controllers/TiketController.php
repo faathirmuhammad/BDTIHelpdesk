@@ -10,6 +10,7 @@ use App\PersediaanBarang;
 use App\Petugas;
 use App\Siap;
 use App\Sigota;
+use App\Solusi;
 use App\StatusKasus;
 use App\Tiket;
 use Barryvdh\DomPDF\Facade as PDF;
@@ -25,8 +26,9 @@ class TiketController extends Controller
         $status = StatusKasus::all();
 //        SELECT * FROM petugas a LEFT JOIN tikets b ON a.id = b.petugas WHERE b.petugas IS NULL OR b.status != 1
 
-        $petugas = DB::table('petugas')->leftJoin('tikets', 'petugas.id', '=', 'tikets.petugas')->Where('tikets.petugas','=',NULL)->orWhere('tikets.status','!=','1')->get();
+        $petugas = DB::table('petugas')->select('petugas.id', 'petugas.nama')->leftJoin('tikets', 'petugas.id', '=', 'tikets.petugas')->WhereNull('tikets.petugas')->orWhere('tikets.status','!=','1')->get();
 
+//        $petugas = Petugas::All();
         $barang = PersediaanBarang::orderBy('nama_barang', 'asc')->get();
         return view('tambah_tiket', [
             'jenistiket'=>$jenistiket,
@@ -57,7 +59,6 @@ class TiketController extends Controller
     }
 
     public function new(Request $request){
-//        dd($request);
 
         $tiket = new Tiket();
         $tiket->nomor = rand(1,1000).date("Y");
@@ -122,6 +123,53 @@ class TiketController extends Controller
     public function cetak_tiket(Request $request){
         $tiket = Tiket::find($request->id);
         return PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'defaultFont'=> 'Helvetica'])->loadView('cetak_tiket_1', ['tiket'=>$tiket])->stream();
+    }
+
+    public function tambah_solusi(Request $request){
+        if(is_null($request->id)){
+            $sol = new Solusi();
+            $sol->tiket_id = $request->tiket_id;
+            $sol->deskripsi = $request->deskripsi;
+            $sol->solusi = $request->solusi;
+            $sol->save();
+        }else{
+            $sol = Solusi::find($request->id);
+            $sol->tiket_id = $request->tiket_id;
+            $sol->deskripsi = $request->deskripsi;
+            $sol->solusi = $request->solusi;
+            $sol->save();
+        }
+        return redirect()->route('view_tiket',$request->tiket_id);
+    }
+
+    public function edit_tiket($id){
+        $tiket = Tiket::find($id);
+        $jenistiket = JenisTiket::all();
+        $kategori = DaftarKasus::all();
+        $status = StatusKasus::all();
+//        SELECT * FROM petugas a LEFT JOIN tikets b ON a.id = b.petugas WHERE b.petugas IS NULL OR b.status != 1
+
+        $petugas = DB::table('petugas')->leftJoin('tikets', 'petugas.id', '=', 'tikets.petugas')->Where('tikets.petugas','=',NULL)->orWhere('tikets.status','!=','1')->get();
+
+        $barang = PersediaanBarang::orderBy('nama_barang', 'asc')->get();
+        return view('edit_tiket', [
+            'jenistiket'=>$jenistiket,
+            'petugas'=>$petugas,
+            'kategori'=>$kategori,
+            'status'=>$status,
+            'barang'=>$barang,
+            'tiket'=>$tiket]);
+    }
+
+    public function update(Request $request){
+        dd($request);
+    }
+
+    public function tiket_close(Request $request){
+        $tiket = Tiket::find($request->id);
+        $tiket->status = 4;
+        $tiket->save();
+        return redirect()->route('view_tiket',$request->id);
     }
 
 }

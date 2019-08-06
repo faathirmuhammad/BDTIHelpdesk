@@ -41,9 +41,9 @@
 </style>
 
 <!-- Preloader -->
-<div class="preloader-it">
-    <div class="loader-pendulums"></div>
-</div>
+{{--<div class="preloader-it">--}}
+{{--    <div class="loader-pendulums"></div>--}}
+{{--</div>--}}
 <!-- /Preloader -->
 
 <!-- HK Wrapper -->
@@ -90,7 +90,7 @@
                     <li class="nav-item">
                         <ul class="navbar-nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{{route('dashboard')}}">
                                     <i class="ion ion-ios-keypad text-muted"></i>
                                     <span class="nav-link-text">Dashboard</span>
                                 </a>
@@ -116,39 +116,65 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item {{ request()->is('barang/*') ? ' active' : '' }}">
-                        <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#dash_drpd">
-                            <i class="ion ion-ios-cube text-muted"></i>
-                            <span class="nav-link-text">Persediaan</span>
-                        </a>
-                        <ul id="dash_drpd" class="nav flex-column collapse collapse-level-1">
+                    <li class="nav-item">
+                        <ul class="navbar-nav flex-column">
                             <li class="nav-item">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item {{ request()->is('barang/tambah_barang') ? ' active' : '' }}">
-                                        <a class="nav-link" href="{{route('tambah_barang')}}">Tambah Persediaan</a>
-                                    </li>
-                                    <li class="nav-item {{ request()->is('barang/daftar_barang/*') ? ' active' : '' }}">
-                                        <a class="nav-link" href="{{route('daftar_barang')}}">Daftar Persediaan</a>
-                                    </li>
-                                </ul>
+                                <a class="nav-link" href="{{route('daftar_barang')}}">
+                                    <i class="ion ion-ios-cube text-muted"></i>
+                                    <span class="nav-link-text">Barang</span>
+                                </a>
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item {{ request()->is('petugas/*') ? ' active' : '' }}">
-                        <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#dash_drps">
-                            <i class="ion ion-ios-person text-muted"></i>
-                            <span class="nav-link-text">Petugas</span>
-                        </a>
-                        <ul id="dash_drps" class="nav flex-column collapse collapse-level-1">
+                    <li class="nav-item">
+                        <ul class="navbar-nav flex-column">
                             <li class="nav-item">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item {{ request()->is('petugas/tambah_petugas') ? ' active' : '' }}">
-                                        <a class="nav-link" href="{{route('tambah_petugas')}}">Tambah Petugas</a>
-                                    </li>
-                                    <li class="nav-item {{ request()->is('petugas/daftar_petugas/*') ? ' active' : '' }}">
-                                        <a class="nav-link" href="{{route('daftar_petugas')}}">Daftar Petugas</a>
-                                    </li>
-                                </ul>
+                                <a class="nav-link" href="{{route('daftar_petugas')}}">
+                                    <i class="ion ion-ios-person text-muted"></i>
+                                    <span class="nav-link-text">Petugas</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <hr class="nav-separator">
+                    <li class="nav-item">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('daftar_pegawai')}}">
+                                    <i class="ion ion-ios-people text-muted"></i>
+                                    <span class="nav-link-text">Pegawai</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('daftar_anggota')}}">
+                                    <i class="ion ion-ios-people text-muted"></i>
+                                    <span class="nav-link-text">Anggota</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('daftar_pelaporlain')}}">
+                                    <i class="ion ion-ios-people text-muted"></i>
+                                    <span class="nav-link-text">Pelapor Lain</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <hr class="nav-separator">
+                    <li class="nav-item">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('daftar_pengguna')}}">
+                                    <i class="ion ion-ios-people text-muted"></i>
+                                    <span class="nav-link-text">Pengguna</span>
+                                </a>
                             </li>
                         </ul>
                     </li>
@@ -238,22 +264,11 @@
 <!-- Owl JavaScript -->
 <script src="{{asset('/template/vendors/owl.carousel/dist/owl.carousel.min.js')}}"></script>
 
-<!-- Toastr JS -->
-<script src="{{asset('/template/vendors/jquery-toast-plugin/dist/jquery.toast.min.js')}}"></script>
-
 <!-- Init JavaScript -->
 <script src="{{asset('/template/dist/js/init.js')}}"></script>
 <script src="{{asset('template/dist/js/dashboard-data.js')}}"></script>
 
 <script src="{{asset('/template/dist/js/bdti.js')}}"></script>
-
-<script src="{{asset('/template/vendors/tinymce/tinymce.min.js')}}"></script>
-<script src="{{asset('/template/dist/js/tinymce-data.js')}}"></script>
-<script src="{{asset('/template/vendors/jasny-bootstrap/dist/js/jasny-bootstrap.min.js')}}"></script>
-<script src="{{asset('/template/vendors/select2/dist/js/select2.full.min.js')}}"></script>
-<script src="{{asset('/template/dist/js/select2-data.js')}}"></script>
-
-<script src="{{asset('template/dist/js/bdti.js')}}"></script>
 
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
 <script src="{{asset('template/vendors/tinymce/tinymce.min.js')}}"></script>
@@ -263,8 +278,7 @@
 <script src="{{asset('template/dist/js/select2-data.js')}}"></script>
 <script src="{{asset('template/vendors/raphael/raphael.min.js')}}"></script>
 <script src="{{asset('template/vendors/morris.js/morris.min.js')}}"></script>
-<script src="{{asset('template/vendors/apexcharts/dist/apexcharts.min.js')}}"></script>
-<script src="{{asset('template/vendors/echarts/dist/echarts-en.min.js')}}"></script>
+<script src="{{asset('template/dist/js/barcharts-data.js')}}"></script>
 <script src="{{asset('template/dist/js/dashboard2-data.js')}}"></script>
 
 
