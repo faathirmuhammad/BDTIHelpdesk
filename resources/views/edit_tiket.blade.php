@@ -1,7 +1,7 @@
 @extends('template')
-@section('title', 'Tambah Tiket')
+@section('title', 'Edit Tiket')
 @section('content')
-    <form action="{{route('tiket_new')}}" method="POST">
+    <form action="{{route('update_tiket')}}" method="POST">
         @csrf
         <div class="row">
             <div class="col-xl-8">
@@ -11,7 +11,7 @@
                             <select class="form-control form-control-sm" name="jenis" id="tambah_jenis_tiket" required>
                                 <option selected class="bg-dark-100 text-white" disabled>Jenis Tiket</option>
                                 @foreach($jenistiket as $jt)
-                                    <option value="{{$jt->id}}">{{$jt->jenis}}</option>
+                                    <option value="{{$jt->id}}" @if($tiket->jenis == $jt->id) selected @endif >{{$jt->jenis}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -20,17 +20,17 @@
                                     required>
                                 <option selected class="bg-dark-100 text-white" disabled>Kategori Kasus</option>
                                 @foreach($kategori as $kat)
-                                    <option value="{{$kat->id}}">{{$kat->kasus}}</option>
+                                    <option value="{{$kat->id}}" @if($tiket->kasus == $kat->id) selected @endif >{{$kat->kasus}}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="form-row mt-5">
                         <div class="col-md-6">
-                            <select class="form-control select2" name="petugas" required>
+                            <select class="form-control form-control-sm  select2" name="petugas" required>
                                 <option selected class="bg-dark-100 text-white" disabled>Petugas</option>
                                 @foreach($petugas as $pt)
-                                    <option value="{{$pt->id}}">{{$pt->nama}}</option>
+                                    <option value="{{$pt->id}}" @if($tiket->petugas == $pt->id) selected @endif >{{$pt->nama}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -38,11 +38,7 @@
                             <select class="form-control" name="status" required>
                                 <option class="bg-dark-100 text-white" disabled>Status</option>
                                 @foreach($status as $sta)
-                                    @if($sta->status == "Open")
-                                        <option value="{{$sta->id}}" selected>{{$sta->status}}</option>
-                                    @else
-                                        <option value="{{$sta->id}}">{{$sta->status}}</option>
-                                    @endif
+                                    <option value="{{$sta->id}}" @if($tiket->status == $sta->id) selected @endif >{{$sta->status}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -50,13 +46,13 @@
                 </section>
                 <section class="hk-sec-wrapper">
                     <div class="tinymce-wrap">
-                        <textarea class="tinymce" name="permasalahan" maxlength="300"></textarea>
-{{--                        <textarea class="tinymce" name="permasalahan" maxlength="300" style="resize: none;" onkeyup="new do_resize(this);" onKeyPress="return ( this.value.length < 300); onpaste="return ( this.value.length < 300);"></textarea>--}}
+                        <textarea class="tinymce" name="permasalahan" maxlength="300">{{$tiket->permasalahan}}</textarea>
+                        {{--                        <textarea class="tinymce" name="permasalahan" maxlength="300" style="resize: none;" onkeyup="new do_resize(this);" onKeyPress="return ( this.value.length < 300); onpaste="return ( this.value.length < 300);"></textarea>--}}
                     </div>
                 </section>
             </div>
             <div class="col-xl-4">
-                <section class="hk-sec-wrapper tambah_form_dinas" style="display: none;">
+                <section class="hk-sec-wrapper tambah_form_dinas" @if($tiket->jenis != "1") style="display: none;" @endif>
                     <div class="row">
                         <div class="col-xl-12">
                             <small>Nomor Nota Dinas</small>
@@ -64,7 +60,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="hk-sec-wrapper tambah_barang" style="display:none;">
+                <section class="hk-sec-wrapper tambah_barang" @if($tiket->kasus != "1") style="display: none;" @endif>
                     <div class="row">
                         <div class="col-xl-12">
                             <small>Nama Barang</small>
@@ -79,7 +75,7 @@
 
                                     $jum = $barangmasuk - $barangkeluar;
                                     @endphp
-                                    <option value="{{$bar->id}}" data-value="{{$jum}}">{{$bar->nama_barang}}</option>
+                                    <option value="{{$bar->id}}" data-value="{{$jum}}" @if($tiket->kasus == "1" && $tiket->barang == $bar->id) selected @endif>{{$bar->nama_barang}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -89,9 +85,9 @@
                             <small>Jumlah</small>
                             <div class="input-group">
                                 <input type="number" class="form-control tambah_barang jumlah_barang number_only"
-                                       min="0" name="jumlah">
+                                       min="0" name="jumlah"  @if($tiket->kasus == 1) value="{{$tiket->jumlah}}" @endif>
                                 <div class="input-group-append">
-                                    <span class="input-group-text" id="jumlah_maksimum">0</span>
+                                    <span class="input-group-text" id="jumlah_maksimum"></span>
                                 </div>
                             </div>
                         </div>
@@ -111,25 +107,32 @@
                             <small>Pelapor</small>
                             <select class="form-control custom-select" name="jenis_pelapor" id="tambah_pelapor">
                                 <option selected class="bg-dark-100 text-white" disabled></option>
-                                <option value="Pegawai">Pegawai</option>
-                                <option value="Anggota">Anggota</option>
-                                <option value="Lain-lain">Lain-lain</option>
+                                <option value="Pegawai" @if($tiket->jenispelapor == "Pegawai") selected @endif>Pegawai</option>
+                                <option value="Anggota" @if($tiket->jenispelapor == "Anggota") selected @endif>Anggota</option>
+                                <option value="Lain-lain" @if($tiket->jenispelapor == "Lain-lain") selected @endif>Lain-lain</option>
                             </select>
                         </div>
                     </div>
                     <div class="row mt-5">
                         <div class="col-xl-12">
                             <small>Phone</small>
-                            <input type="text" class="form-control number_only" name="phone_pelapor" required>
+                            <input type="text" class="form-control number_only" name="phone_pelapor" value="{{$tiket->phone_pelapor}}" required>
                         </div>
                     </div>
                     <div class="row mt-5">
                         <div class="col-xl-12">
                             <small>Email</small>
-                            <input type="email" class="form-control space_disable" name="email_pelapor" required>
+                            <input type="email" class="form-control space_disable" name="email_pelapor" value="{{$tiket->email_pelapor}}" required>
                         </div>
                     </div>
                     <hr>
+                    @if($tiket->jenispelapor == "Pegawai")
+                        @php $pelapor = \App\Siap::find($tiket->pelapor) @endphp
+                    @elseif($tiket->jenispelapor == "Anggota")
+                        @php $pelapor = \App\Sigota::find($tiket->pelapor) @endphp
+                    @else
+                        @php $pelapor = \App\PelaporLain::find($tiket->pelapor) @endphp
+                    @endif
                     <div class="tambah_data_pelapor">
                         <div class="row">
                             <div class="col-xl-12" style="display: none !important;" id="tambah_nama_select">
@@ -140,34 +143,34 @@
                             </div>
                             <div class="col-xl-12" id="tambah_nama_input">
                                 <small>Nama</small>
-                                <input type="text" class="form-control tambah_namanya" name="pelapor_lain">
+                                <input type="text" class="form-control tambah_namanya" name="pelapor_lain" value="{{$pelapor->nama}}" @if($tiket->jenispelapor == "Pegawai" || $tiket->jenispelapor == "Anggota") readonly @endif>
                             </div>
                         </div>
                         <div class="row mt-5">
                             <div class="col-xl-12">
                                 <small>Unit Kerja/Fraksi</small>
-                                <input type="text" class="form-control" name="unit_kerja" id="tambah_fraksi">
+                                <input type="text" class="form-control" name="unit_kerja" id="tambah_fraksi" value="{{$pelapor->fraksi}}" @if($tiket->jenispelapor == "Pegawai" || $tiket->jenispelapor == "Anggota") readonly @endif>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-8 mt-5">
                                 <small>Gedung</small>
-                                <input type="text" class="form-control" name="gedung" id="tambah_gedung">
+                                <input type="text" class="form-control" name="gedung" id="tambah_gedung" value="{{$pelapor->gedung}}" @if($tiket->jenispelapor == "Pegawai" || $tiket->jenispelapor == "Anggota") readonly @endif>
                             </div>
                             <div class="col-xl-4 mt-5">
                                 <small>Lantai</small>
-                                <input type="text" class="form-control number_only" name="lantai" id="tambah_lantai">
+                                <input type="text" class="form-control number_only" name="lantai" id="tambah_lantai" value="{{$pelapor->lantai}}" @if($tiket->jenispelapor == "Pegawai" || $tiket->jenispelapor == "Anggota") readonly @endif>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-8 mt-5">
                                 <small>Telepon</small>
                                 <input type="text" class="form-control number_only" name="telepon_ruangan"
-                                       id="tambah_telepon">
+                                       id="tambah_telepon" value="{{$pelapor->telp}}" @if($tiket->jenispelapor == "Pegawai" || $tiket->jenispelapor == "Anggota") readonly @endif>
                             </div>
                             <div class="col-xl-4 mt-5">
                                 <small>Ruangan</small>
-                                <input type="text" class="form-control" name="ruangan" id="tambah_ruangan">
+                                <input type="text" class="form-control" name="ruangan" id="tambah_ruangan" value="{{$pelapor->ruang}}" @if($tiket->jenispelapor == "Pegawai" || $tiket->jenispelapor == "Anggota") readonly @endif>
                             </div>
                         </div>
                     </div>

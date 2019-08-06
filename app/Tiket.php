@@ -23,4 +23,8 @@ class Tiket extends Model
     public function petugases(){
         return $this->belongsTo('App\Petugas', 'petugas', 'id');
     }
+
+    public function solusi(){
+        return $this->hasOne('App\Solusi');
+    }
 }

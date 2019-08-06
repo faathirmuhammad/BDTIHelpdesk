@@ -50,10 +50,6 @@
                                                 <small>Tanggal</small>
                                                 <span class="badge badge-dark">{{$tiket->created_at->format('d/m/Y')}}</span>
                                             </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                <small>Pelapor</small>
-                                                <span class="badge badge-dark">{{$tiket->jenispelapor}} / {{$pelapor->nama}}</span>
-                                            </li>
                                             <li class="list-group-item">
                                                 <select id="view_tiket_status" class="form-control form-control-sm" data-value="{{$tiket->id}}">
                                                     @foreach($status as $sta)
@@ -62,7 +58,17 @@
                                                 </select>
                                             </li>
                                             <li class="list-group-item">
-                                                <form action="{{route('cetak_tiket')}}" method="POST">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <a href="#" class="btn btn-gradient-danger font-weight-bold text-uppercase btn-sm btn-block" data-toggle="modal" data-target="#solusi">Solusi</a>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <a href="{{route('edit_tiket', $tiket->id)}}" class="btn btn-gradient-danger font-weight-bold text-uppercase btn-sm btn-block @if($tiket->status == 4) disabled @endif">Edit</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <form action="{{route('cetak_tiket')}}" method="POST" target="_blank">
                                                     @csrf
                                                     <input type="hidden" name="id" value="{{$tiket->id}}">
                                                     <button type="submit" class="btn btn-gradient-info font-weight-bold text-uppercase btn-sm btn-block">Cetak</button>
@@ -108,6 +114,57 @@
                                                 <span class="badge badge-dark">{{$pelapor->telp}}</span>
                                             </li>
                                         </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="solusi" tabindex="-1" role="dialog" aria-labelledby="solusi" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <form action="{{route('tambah_solusi')}}" method="POST">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">#{{$tiket->nomor}}</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                                @csrf
+                                                @if($tiket->solusi)
+                                                <input type="hidden" value="{{$tiket->solusi->id}}" name="id">
+                                                @endif
+                                                <input type="hidden" value="{{$tiket->id}}" name="tiket_id">
+                                                <label class="font-weight-bold">DESKRIPSI</label>
+                                                <textarea name="deskripsi" rows="5" class="form-control mb-5" @if($tiket->status == 4) readonly @endif>@if($tiket->solusi){{$tiket->solusi->deskripsi}}@endif</textarea>
+                                                <hr>
+                                                <label class="font-weight-bold">SOLUSI</label>
+                                                <textarea name="solusi" rows="5" class="form-control mb-5" @if($tiket->status == 4) readonly @endif>@if($tiket->solusi){{$tiket->solusi->solusi}}@endif</textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary" @if($tiket->status == 4) disabled @endif>Update</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="closed" tabindex="-1" role="dialog" aria-labelledby="closed" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                                    <div class="modal-content">
+                                        <form action="{{route('tiket_close')}}" method="POST">
+                                            <div class="modal-body">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{$tiket->id}}">
+                                                <h3 class="text-center text-muted">Are you sure want to <br>close this ticket ?</h3>
+                                            </div>
+                                            <div class="modal-footer d-flex justify-content-center">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="window.location.reload();">Cancel</button>
+                                                <button type="submit" class="btn btn-primary">Yes</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

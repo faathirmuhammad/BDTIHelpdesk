@@ -38,8 +38,8 @@
                         </div>
                     </div>
                     <div class="row mt-10">
-                        <div class="col-md-3 offset-md-9">
-                            <button type="submit" class="btn btn-gradient-info text-uppercase btn-block font-weight-bold">Submit</button>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-gradient-primary text-uppercase btn-block font-weight-bold">Submit</button>
                         </div>
                     </div>
                 </form>

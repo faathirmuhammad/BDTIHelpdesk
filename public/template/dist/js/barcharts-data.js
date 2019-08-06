@@ -1,13 +1,13 @@
 /*Dashboard3 Init*/
- 
-"use strict"; 
+
+"use strict";
 
 /*****E-Charts function start*****/
-var echartsConfig = function() { 
+var echartsConfig = function() {
 	if( $('#e_chart_1').length > 0 ){
 		var eChart_1 = echarts.init(document.getElementById('e_chart_1'));
 		var option = {
-			color: ['#f68daf'],
+			color: ['#00acf0'],
 			tooltip: {
 				show: true,
 				trigger: 'axis',
@@ -25,10 +25,11 @@ var echartsConfig = function() {
 					fontSize: 12
 				}
 			},
-			
+
 			xAxis: [{
 				type: 'category',
-				data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+				data: ['Internet Dan Jaringan', 'Sistem Operasi', 'Hardware', 'Software', 'Aplikasi Internal', 'Pengembangan Jaringan', 'Lain-lain'],
+                // data: ['SWC', 'SWC', 'SWC', 'SWC', 'SWC', 'SWC', 'SWC'],
 				axisLine: {
 					show:false
 				},
@@ -37,8 +38,10 @@ var echartsConfig = function() {
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#5e7d8a'
-					}
+						color: '#5e7d8a',
+                        fontSize: 11
+					},
+                    interval :0
 				}
 			}],
 			yAxis: {
@@ -70,7 +73,7 @@ var echartsConfig = function() {
 			series: [{
 				data: [120, 200, 150, 80, 70, 110, 130],
 				type: 'bar',
-				barMaxWidth: 30,
+				barMaxWidth: 40,
 				itemStyle: {
 					normal: {
 						barBorderRadius: [6, 6, 0, 0] ,
@@ -102,7 +105,7 @@ var echartsConfig = function() {
 					fontSize: 12
 				}
 			},
-			
+
 			xAxis: [{
 				type: 'value',
 				axisLine: {
@@ -161,7 +164,7 @@ var echartsConfig = function() {
 	if( $('#e_chart_3').length > 0 ){
 		var eChart_3 = echarts.init(document.getElementById('e_chart_3'));
 		var option2 = {
-			color: ['#f68daf', '#fabacf','#f36493','#feeff4'],		
+			color: ['#f68daf', '#fabacf','#f36493','#feeff4'],
 			tooltip: {
 				show: true,
 				trigger: 'axis',
@@ -177,9 +180,9 @@ var echartsConfig = function() {
 					color: '#324148',
 					fontFamily: '"Roboto", sans-serif',
 					fontSize: 12
-				}	
+				}
 			},
-			
+
 			grid: {
 				top: '3%',
 				left: '3%',
@@ -268,7 +271,7 @@ var echartsConfig = function() {
 	if( $('#e_chart_4').length > 0 ){
 		var eChart_4 = echarts.init(document.getElementById('e_chart_4'));
 		var option3 = {
-			color: ['#f68daf', '#fabacf','#f36493','#feeff4'],		
+			color: ['#f68daf', '#fabacf','#f36493','#feeff4'],
 			tooltip: {
 				show: true,
 				trigger: 'axis',
@@ -286,7 +289,7 @@ var echartsConfig = function() {
 					fontSize: 12
 				}
 			},
-			
+
 			grid: {
 				top: '3%',
 				left: '3%',
@@ -295,9 +298,9 @@ var echartsConfig = function() {
 				containLabel: true
 			},
 			xAxis : [
-				{	
+				{
 					type : 'value',
-					
+
 					axisLine: {
 						show:false
 					},
@@ -376,7 +379,7 @@ var echartsConfig = function() {
 	if( $('#e_chart_5').length > 0 ){
 		var eChart_5 = echarts.init(document.getElementById('e_chart_5'));
 		var option4 = {
-			color: ['#f68daf', '#fabacf','#f36493','#feeff4'],		
+			color: ['#f68daf', '#fabacf','#f36493','#feeff4'],
 			tooltip: {
 				show: true,
 				trigger: 'axis',
@@ -394,7 +397,7 @@ var echartsConfig = function() {
 					fontSize: 12
 				}
 			},
-			
+
 			grid: {
 				top: '3%',
 				left: '3%',
@@ -494,7 +497,7 @@ var echartsConfig = function() {
 	if( $('#e_chart_6').length > 0 ){
 		var eChart_6 = echarts.init(document.getElementById('e_chart_6'));
 		var option5 = {
-			color: ['#f68daf', '#fabacf','#f36493','#feeff4'],		
+			color: ['#f68daf', '#fabacf','#f36493','#feeff4'],
 			tooltip: {
 				show: true,
 				trigger: 'axis',
@@ -512,7 +515,7 @@ var echartsConfig = function() {
 					fontSize: 12
 				}
 			},
-			
+
 			grid: {
 				top: '3%',
 				left: '3%',
@@ -629,9 +632,9 @@ var echartsConfig = function() {
 					color: '#324148',
 					fontFamily: '"Roboto", sans-serif',
 					fontSize: 12
-				}	
+				}
 			},
-			
+
 			xAxis: [{
 				type: 'category',
 				data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -718,9 +721,9 @@ var echartsConfig = function() {
 					color: '#324148',
 					fontFamily: '"Roboto", sans-serif',
 					fontSize: 12
-				}	
+				}
 			},
-			
+
 			xAxis: [{
 				type: 'value',
 				axisLine: {
@@ -807,9 +810,9 @@ var echartsConfig = function() {
 					color: '#324148',
 					fontFamily: '"Roboto", sans-serif',
 					fontSize: 12
-				}	
+				}
 			},
-			
+
 			xAxis: [{
 				type: 'value',
 				axisLine: {
@@ -898,9 +901,9 @@ var echartsConfig = function() {
 					color: '#324148',
 					fontFamily: '"Roboto", sans-serif',
 					fontSize: 12
-				}	
+				}
 			},
-			
+
 			xAxis: [{
 				type: 'value',
 				axisLine: {
@@ -934,7 +937,7 @@ var echartsConfig = function() {
 						color: '#5e7d8a'
 					}
 				}
-			},	
+			},
 			grid: {
 				top: '3%',
 				left: '3%',
@@ -1001,9 +1004,9 @@ var echartsConfig = function() {
 					color: '#324148',
 					fontFamily: '"Roboto", sans-serif',
 					fontSize: 12
-				}	
+				}
 			},
-			
+
 			xAxis: [{
 				type: 'category',
 				data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -1074,7 +1077,7 @@ $(window).on("resize", function () {
 	/*E-Chart Resize*/
 	clearTimeout(echartResize);
 	echartResize = setTimeout(echartsConfig, 200);
-}).resize(); 
+}).resize();
 /*****Resize function end*****/
 
 /*****Function Call start*****/

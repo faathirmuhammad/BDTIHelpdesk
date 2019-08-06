@@ -44,4 +44,9 @@ class PetugasController extends Controller
 
         return redirect()->route('daftar_petugas');
     }
+
+    public function delete(Request $request){
+        $petugas = Petugas::destroy($request->id);
+        return redirect()->route('daftar_petugas');
+    }
 }
