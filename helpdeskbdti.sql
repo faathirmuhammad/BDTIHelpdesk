@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2019 at 04:51 AM
+-- Generation Time: Aug 06, 2019 at 03:35 PM
 -- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.6
+-- PHP Version: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -122,7 +122,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2019_07_04_063842_create_pelapor_lains_table', 1),
 (11, '2019_07_04_063922_tiket', 1),
 (12, '2019_07_30_120136_create_persediaans_table', 1),
-(14, '2019_07_31_084838_create_barang_keluars_table', 2);
+(14, '2019_07_31_084838_create_barang_keluars_table', 2),
+(15, '2019_08_06_051037_create_solusis_table', 3);
 
 -- --------------------------------------------------------
 
@@ -235,7 +236,7 @@ CREATE TABLE `persediaans` (
 INSERT INTO `persediaans` (`id`, `barang_id`, `nomorspk`, `tanggalspk`, `tanggalbarangmasuk`, `jumlah`, `created_at`, `updated_at`) VALUES
 (1, 1, '984324029809', '2019-07-02', '2019-07-12', '20', '2019-07-30 18:26:29', '2019-07-30 18:26:29'),
 (2, 1, '12313123', '2019-07-10', '2019-07-12', '5', '2019-07-30 18:38:11', '2019-07-30 18:38:11'),
-(3, 2, '4535', '2019-07-01', '2019-07-12', '3', '2019-07-30 18:50:30', '2019-07-30 18:50:30');
+(4, 2, '12313123', '2019-08-06', '2019-09-13', '5', '2019-08-06 06:11:22', '2019-08-06 06:11:22');
 
 -- --------------------------------------------------------
 
@@ -309,7 +310,6 @@ INSERT INTO `petugas` (`id`, `nama`, `phone`, `spesialisasi`, `created_at`, `upd
 (28, 'Yessi Nuraini', '0514 9084 6431', 'quam', NULL, NULL),
 (29, 'Elvina Halima Lailasari', '(+62) 837 1295 988', 'enim', NULL, NULL),
 (30, 'Kawaya Prabowo S.I.Kom', '(+62) 542 5926 830', 'dolore', NULL, NULL),
-(31, 'Kuncara Dabukke S.Sos', '0461 2915 908', 'molestiae', NULL, NULL),
 (32, 'Ajiono Sirait', '(+62) 221 6150 531', 'est', NULL, NULL),
 (33, 'Kanda Maulana S.Psi', '0242 3940 2139', 'voluptate', NULL, NULL),
 (34, 'Jamal Panji Maheswara', '(+62) 979 4454 4893', 'et', NULL, NULL),
@@ -329,7 +329,8 @@ INSERT INTO `petugas` (`id`, `nama`, `phone`, `spesialisasi`, `created_at`, `upd
 (48, 'Wisnu Permadi M.TI.', '0930 8249 6589', 'fugiat', NULL, NULL),
 (49, 'Oliva Almira Yulianti', '(+62) 836 3966 879', 'occaecati', NULL, NULL),
 (50, 'Marsudi Yosef Dongoran', '0770 9241 927', 'aliquam', NULL, NULL),
-(51, 'Yulia Vera Riyanti', '(+62) 26 9800 158', 'maiores', NULL, NULL);
+(51, 'Yulia Vera Riyanti', '(+62) 26 9800 158', 'maiores', NULL, NULL),
+(52, 'Faathir Muhammads', '8967490369822', 'Jaringan', '2019-08-06 05:55:49', '2019-08-06 05:59:25');
 
 -- --------------------------------------------------------
 
@@ -484,6 +485,29 @@ INSERT INTO `sigotas` (`id`, `nama`, `fraksi`, `gedung`, `lantai`, `ruang`, `tel
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `solusis`
+--
+
+CREATE TABLE `solusis` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tiket_id` bigint(20) UNSIGNED NOT NULL,
+  `deskripsi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `solusi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `solusis`
+--
+
+INSERT INTO `solusis` (`id`, `tiket_id`, `deskripsi`, `solusi`, `created_at`, `updated_at`) VALUES
+(1, 2, 'deskripsi', 'solusi', '2019-08-05 22:44:55', '2019-08-05 22:57:16'),
+(2, 4, 'id4', 'solusiid4', '2019-08-05 22:57:58', '2019-08-05 22:57:58');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `status_kasuses`
 --
 
@@ -534,9 +558,11 @@ CREATE TABLE `tikets` (
 --
 
 INSERT INTO `tikets` (`id`, `nomor`, `nomor_nota_dinas`, `jenispelapor`, `pelapor`, `phone_pelapor`, `email_pelapor`, `permasalahan`, `kasus`, `barang`, `jumlah`, `petugas`, `status`, `jenis`, `created_at`, `updated_at`) VALUES
-(2, '3482019', NULL, 'Pegawai', 3, '+6289674903698', 'faathir.muhammad@gmail.com', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar dictum elit et tempus. Nulla lobortis sollicitudin nulla. Curabitur elementum massa a odio pulvinar luctus. Morbi faucibus commodo tortor, ut feugiat nibh sollicitudin nec. Integer pretium aliquam libero, sed sagittis nibh molestie ac.</p>', 1, 2, 3, 9, 1, 3, '2019-07-31 02:21:32', '2019-07-31 02:21:32'),
+(2, '3482019', NULL, 'Pegawai', 3, '+6289674903698', 'faathir.muhammad@gmail.com', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar dictum elit et tempus. Nulla lobortis sollicitudin nulla. Curabitur elementum massa a odio pulvinar luctus. Morbi faucibus commodo tortor, ut feugiat nibh sollicitudin nec. Integer pretium aliquam libero, sed sagittis nibh molestie ac.</p>', 1, 2, 3, 9, 4, 3, '2019-07-31 02:21:32', '2019-08-06 03:20:53'),
 (4, '2142019', NULL, 'Pegawai', 3, '+6289674903698', 'faathir.muhammad@gmail.com', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar dictum elit et tempus. Nulla lobortis sollicitudin nulla. Curabitur elementum massa a odio pulvinar luctus. Morbi faucibus commodo tortor, ut feugiat nibh sollicitudin nec. Integer pretium aliquam libero, sed sagittis nibh molestie ac. Suspendisse molestie elit urna, eget consectetur lacus ultricies id. Curabitur semper ullamcorper condimentum.</p>', 2, NULL, NULL, 5, 1, 3, '2019-08-04 18:07:53', '2019-08-04 18:07:53'),
-(10, '6932019', NULL, 'Pegawai', 4, '+6289674903698', 'faathir.muhammad@gmail.com', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar dictum elit et tempus. Nulla lobortis sollicitudin nulla. Curabitur elementum massa a odio pulvinar luctus. Morbi faucibus commodo tortor, ut feugiat nibh sollicitudin nec. Integer pretium aliquam libero, sed sagittis nibh molestie ac. Suspendisse molestie elit urna, eget consectetur lacus ultricies id. Curabitur semper ullamcorper condimentum.</p>\r\n<p>Nam nibh neque, venenatis at purus et, placerat iaculis nisi. Suspendisse potenti. Aliquam elementum ac orci et commodo. Aliquam eu nulla sed ligula auctor molestie. Fusce sollicitudin elit ultrices risus lobortis varius. Nulla pellentesque scelerisque magna, quis pretium odio bibendum ac. Aliquam ante ligula, pellentesque tincidunt nunc sed, auctor convallis orci.</p>', 5, NULL, NULL, 48, 2, 4, '2019-08-04 19:32:25', '2019-08-04 19:32:25');
+(10, '6932019', NULL, 'Pegawai', 4, '+6289674903698', 'faathir.muhammad@gmail.com', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar dictum elit et tempus. Nulla lobortis sollicitudin nulla. Curabitur elementum massa a odio pulvinar luctus. Morbi faucibus commodo tortor, ut feugiat nibh sollicitudin nec. Integer pretium aliquam libero, sed sagittis nibh molestie ac. Suspendisse molestie elit urna, eget consectetur lacus ultricies id. Curabitur semper ullamcorper condimentum.</p>\r\n<p>Nam nibh neque, venenatis at purus et, placerat iaculis nisi. Suspendisse potenti. Aliquam elementum ac orci et commodo. Aliquam eu nulla sed ligula auctor molestie. Fusce sollicitudin elit ultrices risus lobortis varius. Nulla pellentesque scelerisque magna, quis pretium odio bibendum ac. Aliquam ante ligula, pellentesque tincidunt nunc sed, auctor convallis orci.</p>', 5, NULL, NULL, 48, 2, 4, '2019-08-04 19:32:25', '2019-08-04 19:32:25'),
+(11, '1412019', NULL, 'Anggota', 3, '+6289674903698', 'faathir.muhammad@gmail.com', '<p>asdadsa</p>', 2, NULL, NULL, 2, 2, 3, '2019-08-06 02:58:42', '2019-08-06 02:58:42'),
+(12, '3752019', NULL, 'Anggota', 3, '+6289674903698', 'faathir.muhammad@gmail.com', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar dictum elit et tempus. Nulla lobortis sollicitudin nulla. Curabitur elementum massa a odio pulvinar luctus. Morbi faucibus commodo tortor, ut feugiat nibh sollicitudin nec. Integer pretium aliquam libero, sed sagittis nibh molestie ac. Suspendisse molestie elit urna, eget consectetur lacus ultricies id. Curabitur semper ullamcorper condimentum.</p>', 3, NULL, NULL, 1, 3, 2, '2019-08-06 04:03:28', '2019-08-06 04:03:28');
 
 -- --------------------------------------------------------
 
@@ -547,6 +573,7 @@ INSERT INTO `tikets` (`id`, `nomor`, `nomor_nota_dinas`, `jenispelapor`, `pelapo
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -554,6 +581,13 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `role`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Faathir Muhammads', 'admin', 'faathir.muhammad@gmail.com', NULL, '$2y$10$UAB/W0q1zYP3x9/vcVqw4u8k8iJWRvaFPbVMp0.Qm2CNgItwAM.p6', NULL, '2019-08-06 05:27:57', '2019-08-06 05:48:08');
 
 --
 -- Indexes for dumped tables
@@ -631,6 +665,13 @@ ALTER TABLE `sigotas`
   ADD UNIQUE KEY `sigotas_id_unique` (`id`);
 
 --
+-- Indexes for table `solusis`
+--
+ALTER TABLE `solusis`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `solusis_tiket_id_foreign` (`tiket_id`);
+
+--
 -- Indexes for table `status_kasuses`
 --
 ALTER TABLE `status_kasuses`
@@ -681,7 +722,7 @@ ALTER TABLE `jenis_tikets`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `pelaporlains`
@@ -693,19 +734,19 @@ ALTER TABLE `pelaporlains`
 -- AUTO_INCREMENT for table `persediaans`
 --
 ALTER TABLE `persediaans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `persediaan_barangs`
 --
 ALTER TABLE `persediaan_barangs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `petugas`
 --
 ALTER TABLE `petugas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `siaps`
@@ -720,6 +761,12 @@ ALTER TABLE `sigotas`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
+-- AUTO_INCREMENT for table `solusis`
+--
+ALTER TABLE `solusis`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `status_kasuses`
 --
 ALTER TABLE `status_kasuses`
@@ -729,13 +776,13 @@ ALTER TABLE `status_kasuses`
 -- AUTO_INCREMENT for table `tikets`
 --
 ALTER TABLE `tikets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -753,6 +800,12 @@ ALTER TABLE `barang_keluars`
 --
 ALTER TABLE `persediaans`
   ADD CONSTRAINT `persediaans_barang_id_foreign` FOREIGN KEY (`barang_id`) REFERENCES `persediaan_barangs` (`id`);
+
+--
+-- Constraints for table `solusis`
+--
+ALTER TABLE `solusis`
+  ADD CONSTRAINT `solusis_tiket_id_foreign` FOREIGN KEY (`tiket_id`) REFERENCES `tikets` (`id`);
 
 --
 -- Constraints for table `tikets`
