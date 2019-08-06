@@ -92,11 +92,6 @@ var options1 = {
 			}
 		}
 }
-var chart1 = new ApexCharts(
-	document.querySelector("#e_chart_1"),
-	options1
-);
-chart1.render();
 
 var ts2 = 1484418600000;
 var dates = [];
@@ -183,11 +178,6 @@ var options2 = {
 	}
   }
 }
-var chart2 = new ApexCharts(
-  document.querySelector("#e_chart_2"),
-  options2
-);
-chart2.render();
 
 
 var options3 = {
@@ -253,11 +243,6 @@ var options3 = {
 		offsetX: -5
 	}
 }
-var chart3 = new ApexCharts(
-	document.querySelector("#e_chart_3"),
-	options3
-);
-chart3.render();
 
 var options4 = {
   chart: {
@@ -291,11 +276,6 @@ var options4 = {
 	}
   }
     }
-var chart4 = new ApexCharts(
-	document.querySelector("#sparkline_1"),
-	options4
-);
-chart4.render();
 
 var options5 = {
   chart: {
@@ -329,7 +309,6 @@ var options5 = {
 	}
   }
     }
-new ApexCharts(document.querySelector("#sparkline_2"), options5).render();
 
 var options6 = {
   chart: {
@@ -363,7 +342,6 @@ var options6 = {
 	}
   }
     }
-new ApexCharts(document.querySelector("#sparkline_3"), options6).render();
 
 var options7 = {
   chart: {
@@ -397,5 +375,4 @@ var options7 = {
 	}
   }
     }
-new ApexCharts(document.querySelector("#sparkline_4"), options7).render();
 /*ApexCharts End*/

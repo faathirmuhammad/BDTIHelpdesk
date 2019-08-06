@@ -2,7 +2,7 @@
 @section('title', 'Daftar Petugas')
 @section('content')
     <div class="row">
-        <div class="col-xl-12">
+        <div class="col-md-12">
             <section class="hk-sec-wrapper">
                 <div class="row">
                     <div class="col-sm">
@@ -12,35 +12,28 @@
                                 <tr>
                                     <th width="10">No</th>
                                     <th>Nama Petugas</th>
-                                    <th>Nomor HP</th>
                                     <th>Spesialisasi</th>
+                                    <th>Phone</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Fathir</td>
-                                    <td>081112345678</td>
-                                    <td>IT</td>
-                                </tr><tr>
-                                    <td>2</td>
-                                    <td>Naura</td>
-                                    <td>081223456789</td>
-                                    <td>Data</td>
-                                </tr><tr>
-                                    <td>3</td>
-                                    <td>Sarah</td>
-                                    <td>081334567890</td>
-                                    <td>Jaringan</td>
-                                </tr>
-
+                                @php $x=1; @endphp
+                                @foreach($petugas as $pet)
+                                    <tr>
+                                        <td>{{$x}}</td>
+                                        <td>{{$pet->nama}}</td>
+                                        <td>{{$pet->spesialisasi}}</td>
+                                        <td>{{$pet->phone}}</td>
+                                    </tr>
+                                    @php $x++ @endphp
+                                @endforeach
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <th>No</th>
+                                    <th width="10">No</th>
                                     <th>Nama Petugas</th>
-                                    <th>Nomor HP</th>
                                     <th>Spesialisasi</th>
+                                    <th>Phone</th>
                                 </tr>
                                 </tfoot>
                             </table>

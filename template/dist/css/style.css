@@ -16370,10 +16370,12 @@ div.mce-menu .mce-menu-item-sep, .mce-menu-item-sep:hover {
 .table.table-hover tbody tr:hover, .table.table-striped tbody tr:nth-of-type(2n+1) {
   background-color: #f5f5f6; }
 .table.table-bordered {
-  border: none; }
+  border: none;
+}
   .table.table-bordered td {
     border-color: #eaecec;
-    border-top: none; }
+    border-top: none;
+    padding: 0.45rem 1.25rem;}
   .table.table-bordered th {
     border-top: 1px solid #eaecec;
     border-bottom: 1px solid #eaecec; }
@@ -16454,7 +16456,7 @@ div.mce-menu .mce-menu-item-sep, .mce-menu-item-sep:hover {
 .table-sm td, .table-sm th {
   padding: 0.45rem 1.25rem; }
 .table-sm td {
-  font-size: 15px; }
+  font-size: 10px; }
 
 .table-primary,
 .table-sky {
@@ -16589,7 +16591,8 @@ div.mce-menu .mce-menu-item-sep, .mce-menu-item-sep:hover {
     color: #fff;
     background: #2b383e; }
   .table-dark.table.table-bordered td, .table-dark.table.table-bordered th {
-    border-color: #2b383e; }
+    border-color: #2b383e;
+    padding: 0.45rem 1.25rem;}
 
 @media (max-width: 1200px) {
   .table-responsive .table > tbody > tr > td, .table-responsive .table > tbody > tr > th, .table-responsive .table > tfoot > tr > td, .table-responsive .table > tfoot > tr > th, .table-responsive .table > thead > tr > td, .table-responsive .table > thead > tr > th {
