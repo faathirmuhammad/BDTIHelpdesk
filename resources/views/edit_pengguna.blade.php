@@ -16,9 +16,9 @@
                     <label class="text-muted mb-0 mt-5">Email</label>
                     <select name="role" class="form-control">
                         <option selected class="bg-dark-100 text-white" disabled>Role</option>
-                        <option value="admin" @if($user->role == "admin") selected @endif>Admin</option>
-                        <option value="ticketing" @if($user->role == "ticketing") selected @endif >Ticketing</option>
-                        <option value="barang" @if($user->role == "barang") selected @endif >Barang</option>
+                        <option value="admin" @if($user->role == "admin") selected @endif @if(\Illuminate\Support\Facades\Auth::user()->role != "admin") disabled @endif>Admin</option>
+                        <option value="ticketing" @if($user->role == "ticketing") selected @endif @if(\Illuminate\Support\Facades\Auth::user()->role != "admin") disabled @endif>Ticketing</option>
+                        <option value="barang" @if($user->role == "barang") selected @endif @if(\Illuminate\Support\Facades\Auth::user()->role != "admin") disabled @endif>Barang</option>
                     </select>
 
                     <label class="text-muted mb-0 mt-5">Email</label>

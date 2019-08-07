@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2019 at 03:35 PM
+-- Generation Time: Aug 07, 2019 at 04:34 AM
 -- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.7
+-- PHP Version: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -562,7 +562,8 @@ INSERT INTO `tikets` (`id`, `nomor`, `nomor_nota_dinas`, `jenispelapor`, `pelapo
 (4, '2142019', NULL, 'Pegawai', 3, '+6289674903698', 'faathir.muhammad@gmail.com', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar dictum elit et tempus. Nulla lobortis sollicitudin nulla. Curabitur elementum massa a odio pulvinar luctus. Morbi faucibus commodo tortor, ut feugiat nibh sollicitudin nec. Integer pretium aliquam libero, sed sagittis nibh molestie ac. Suspendisse molestie elit urna, eget consectetur lacus ultricies id. Curabitur semper ullamcorper condimentum.</p>', 2, NULL, NULL, 5, 1, 3, '2019-08-04 18:07:53', '2019-08-04 18:07:53'),
 (10, '6932019', NULL, 'Pegawai', 4, '+6289674903698', 'faathir.muhammad@gmail.com', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar dictum elit et tempus. Nulla lobortis sollicitudin nulla. Curabitur elementum massa a odio pulvinar luctus. Morbi faucibus commodo tortor, ut feugiat nibh sollicitudin nec. Integer pretium aliquam libero, sed sagittis nibh molestie ac. Suspendisse molestie elit urna, eget consectetur lacus ultricies id. Curabitur semper ullamcorper condimentum.</p>\r\n<p>Nam nibh neque, venenatis at purus et, placerat iaculis nisi. Suspendisse potenti. Aliquam elementum ac orci et commodo. Aliquam eu nulla sed ligula auctor molestie. Fusce sollicitudin elit ultrices risus lobortis varius. Nulla pellentesque scelerisque magna, quis pretium odio bibendum ac. Aliquam ante ligula, pellentesque tincidunt nunc sed, auctor convallis orci.</p>', 5, NULL, NULL, 48, 2, 4, '2019-08-04 19:32:25', '2019-08-04 19:32:25'),
 (11, '1412019', NULL, 'Anggota', 3, '+6289674903698', 'faathir.muhammad@gmail.com', '<p>asdadsa</p>', 2, NULL, NULL, 2, 2, 3, '2019-08-06 02:58:42', '2019-08-06 02:58:42'),
-(12, '3752019', NULL, 'Anggota', 3, '+6289674903698', 'faathir.muhammad@gmail.com', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar dictum elit et tempus. Nulla lobortis sollicitudin nulla. Curabitur elementum massa a odio pulvinar luctus. Morbi faucibus commodo tortor, ut feugiat nibh sollicitudin nec. Integer pretium aliquam libero, sed sagittis nibh molestie ac. Suspendisse molestie elit urna, eget consectetur lacus ultricies id. Curabitur semper ullamcorper condimentum.</p>', 3, NULL, NULL, 1, 3, 2, '2019-08-06 04:03:28', '2019-08-06 04:03:28');
+(12, '3752019', NULL, 'Anggota', 3, '+6289674903698', 'faathir.muhammad@gmail.com', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar dictum elit et tempus. Nulla lobortis sollicitudin nulla. Curabitur elementum massa a odio pulvinar luctus. Morbi faucibus commodo tortor, ut feugiat nibh sollicitudin nec. Integer pretium aliquam libero, sed sagittis nibh molestie ac. Suspendisse molestie elit urna, eget consectetur lacus ultricies id. Curabitur semper ullamcorper condimentum.</p>', 3, NULL, NULL, 1, 3, 2, '2019-08-06 04:03:28', '2019-08-06 04:03:28'),
+(13, '9972019', '12313123', 'Anggota', 28, '+6289674903698', 'faathir.muhammad@gmail.com', '<p>asadasdasd</p>', 3, NULL, NULL, 29, 2, 1, '2019-08-06 19:24:44', '2019-08-06 19:24:44');
 
 -- --------------------------------------------------------
 
@@ -587,7 +588,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `role`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Faathir Muhammads', 'admin', 'faathir.muhammad@gmail.com', NULL, '$2y$10$UAB/W0q1zYP3x9/vcVqw4u8k8iJWRvaFPbVMp0.Qm2CNgItwAM.p6', NULL, '2019-08-06 05:27:57', '2019-08-06 05:48:08');
+(1, 'Faathir Muhammads', 'admin', 'faathir.muhammad@gmail.com', NULL, '$2y$10$.kbjnzz0X8wbnXbuOyfWGOyz8GdLDBviguYTwWquiZk1DEJvCF/AC', NULL, '2019-08-06 05:27:57', '2019-08-06 17:14:43'),
+(4, 'admin', 'admin', 'admin1@test.com', NULL, '$2y$10$pOwiIWfREKG71nr9CS0ICOIgPiFMdYHh1avnNQM6.9Ktnq.2y/mRa', NULL, '2019-08-06 19:30:56', '2019-08-06 19:30:56'),
+(5, 'ticketing', 'ticketing', 'ticketing@test.com', NULL, '$2y$10$aYOkv2OmyJm7WMsOQCYwmOPgAnMXO.ViDijSePgGFOksD9Brf7cd6', NULL, '2019-08-06 19:31:18', '2019-08-06 19:31:18'),
+(6, 'barang', 'barang', 'barang@test.com', NULL, '$2y$10$n9H06aV8cnjcE1Bo7Tn6pOQBJDoJHo0elV4KvoKR9yo6jYPeIet46', NULL, '2019-08-06 19:31:37', '2019-08-06 19:31:37');
 
 --
 -- Indexes for dumped tables
@@ -776,13 +780,13 @@ ALTER TABLE `status_kasuses`
 -- AUTO_INCREMENT for table `tikets`
 --
 ALTER TABLE `tikets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

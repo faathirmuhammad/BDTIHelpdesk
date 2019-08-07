@@ -34,16 +34,16 @@
 
 <body>
 <style>
-    .background-keren{
+    .background-pixelated{
         background-color: #f5f5f6;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='250' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='.1'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/svg%3E");
     }
 </style>
 
 <!-- Preloader -->
-{{--<div class="preloader-it">--}}
-{{--    <div class="loader-pendulums"></div>--}}
-{{--</div>--}}
+<div class="preloader-it">
+    <div class="loader-pendulums"></div>
+</div>
 <!-- /Preloader -->
 
 <!-- HK Wrapper -->
@@ -52,7 +52,7 @@
     <!-- Top Navbar -->
     <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar">
         <a id="navbar_toggle_btn" class="navbar-toggle-btn nav-link-hover" href="javascript:void(0);"><i class="ion ion-ios-menu"></i></a>
-        <a class="navbar-brand" href="#ss">
+        <a class="navbar-brand" href="/">
             BDTI
         </a>
         <ul class="navbar-nav hk-navbar-content">
@@ -60,14 +60,19 @@
                 <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media">
                         <div class="media-body">
-                            <span>Faathir Muhammad<i class="zmdi zmdi-chevron-down"></i></span>
+                            <span>{{\Illuminate\Support\Facades\Auth::user()->name}}<i class="zmdi zmdi-chevron-down"></i></span>
                         </div>
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
-                    <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-settings"></i><span>Settings</span></a>
+                    <a class="dropdown-item" href="{{route('pengguna_edit', \Illuminate\Support\Facades\Auth::user()->id)}}"><i class="dropdown-icon zmdi zmdi-settings"></i><span>Settings</span></a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-power"></i><span>Log out</span></a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="dropdown-icon zmdi zmdi-power"></i><span>Log out</span></a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </div>
             </li>
         </ul>
@@ -97,25 +102,27 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item {{ request()->is('tiket/*') ? ' active' : '' }}">
+                    @if(\Illuminate\Support\Facades\Auth::user()->role != "barang")
+                        <li class="nav-item {{ request()->is('tiket/*') ? ' active' : '' }}">
 
-                        <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#dash_drp">
-                            <i class="ion ion-ios-mail text-muted"></i>
-                            <span class="nav-link-text">Tiket</span>
-                        </a>
-                        <ul id="dash_drp" class="nav flex-column collapse collapse-level-1  ">
-                            <li class="nav-item">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item {{ request()->is('tiket/tambah_tiket') ? ' active' : '' }}">
-                                        <a class="nav-link" href="{{route('tiket_tambah')}}">Tambah Tiket</a>
-                                    </li>
-                                    <li class="nav-item {{ request()->is('tiket/daftar_tiket/*') ? ' active' : '' }}">
-                                        <a class="nav-link" href="{{route('daftar_tiket')}}">Daftar Tiket</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#dash_drp">
+                                <i class="ion ion-ios-mail text-muted"></i>
+                                <span class="nav-link-text">Tiket</span>
+                            </a>
+                            <ul id="dash_drp" class="nav flex-column collapse collapse-level-1  ">
+                                <li class="nav-item">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item {{ request()->is('tiket/tambah_tiket') ? ' active' : '' }}">
+                                            <a class="nav-link" href="{{route('tiket_tambah')}}">Tambah Tiket</a>
+                                        </li>
+                                        <li class="nav-item {{ request()->is('tiket/daftar_tiket/*') ? ' active' : '' }}">
+                                            <a class="nav-link" href="{{route('daftar_tiket')}}">Daftar Tiket</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
                     <li class="nav-item">
                         <ul class="navbar-nav flex-column">
                             <li class="nav-item">
@@ -126,6 +133,7 @@
                             </li>
                         </ul>
                     </li>
+                    @if(\Illuminate\Support\Facades\Auth::user()->role != "barang")
                     <li class="nav-item">
                         <ul class="navbar-nav flex-column">
                             <li class="nav-item">
@@ -179,6 +187,7 @@
                         </ul>
                     </li>
                 </ul>
+                @endif
                 <hr class="nav-separator">
             </div>
         </div>
@@ -188,7 +197,7 @@
 
     <!-- Main Content -->
     <div class="hk-pg-wrapper">
-        <div class="faq-search-wrap background-keren">
+        <div class="faq-search-wrap background-pixelated">
             <div class="container">
                 <h1 class="display-5 text-muted mb-20 text-uppercase font-weight-bold">@yield('title')</h1>
             </div>
@@ -270,7 +279,7 @@
 
 <script src="{{asset('/template/dist/js/bdti.js')}}"></script>
 
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+{{--<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>--}}
 <script src="{{asset('template/vendors/tinymce/tinymce.min.js')}}"></script>
 <script src="{{asset('template/dist/js/tinymce-data.js')}}"></script>
 <script src="{{asset('template/vendors/jasny-bootstrap/dist/js/jasny-bootstrap.min.js')}}"></script>

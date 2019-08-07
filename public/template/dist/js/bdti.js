@@ -57,18 +57,44 @@ $(document).ready(function(){
             $("#tambah_telepon").val('')
 
             $(".tambah_nama").append('<option selected class="bg-dark-100 text-white" disabled></option>');
-            $.ajax({
-                type:'POST',
-                url:'/ajax/list_pelapor',
-                data:{
-                    pelapor: selected_pelapor
-                },
-                success:function(data){
-                    var response = JSON.parse(data);
-                    // console.log(response.length);
-                    for(var x = 0; x<response.length; x++){
-                        $(".tambah_nama").append('<option value="'+response[x]["id"]+'">'+response[x]["nama"]+'</option>');
-                    }
+            // $.ajax({
+            //     type:'POST',
+            //     url:'/ajax/list_pelapor',
+            //     data:{
+            //         pelapor: selected_pelapor
+            //     },
+            //     success:function(data){
+            //         var response = JSON.parse(data);
+            //         // console.log(response.length);
+            //         for(var x = 0; x<response.length; x++){
+            //             $(".tambah_nama").append('<option value="'+response[x]["id"]+'">'+response[x]["nama"]+'</option>');
+            //         }
+            //     }
+            // });
+            $('.select2').select2({
+                placeholder: 'Search',
+                minimumInputLength: 3,
+                ajax: {
+                    url: '/ajax/auto_pelapor',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            q: $.trim(params.term),
+                            jenis_pelapor: selected_pelapor
+                        };
+                    },
+                    processResults: function (data) {
+                        return {
+                            results:  $.map(data, function (item) {
+                                return {
+                                    text: item.nama,
+                                    id: item.id
+                                }
+                            })
+                        };
+                    },
+                    cache: true
                 }
             });
         }else{
@@ -149,6 +175,27 @@ $(document).ready(function(){
         }
 
     })
+
+    // $(".select3").on("keyup", function () {
+    //     var value = $(this).val();
+    //     // console.log(value);
+    //     if(value.length > 3){
+    //         $.ajax({
+    //             type:'POST',
+    //             url:'/ajax/auto_petugas',
+    //             data:{
+    //                 value: value
+    //             },
+    //             success:function(data){
+    //                 var response = JSON.parse(data);
+    //                 console.log(response);
+    //
+    //             }
+    //         });
+    //     }
+    // })
+
+
 
     //MISC
 

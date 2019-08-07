@@ -99,7 +99,7 @@ class TiketController extends Controller
             $bar->save();
         }
 
-        return redirect()->route('daftar_tiket');
+        return redirect()->route('view_tiket', $tiket->id);
     }
 
     public function daftar_tiket(){
@@ -158,11 +158,49 @@ class TiketController extends Controller
             'kategori'=>$kategori,
             'status'=>$status,
             'barang'=>$barang,
-            'tiket'=>$tiket]);
+            'tiket'=>$tiket,
+            'id'=>$id]);
     }
 
     public function update(Request $request){
-        dd($request);
+        $tiket = Tiket::find($request->id);
+        $tiket->nomor = rand(1,1000).date("Y");
+        $tiket->nomor_nota_dinas = $request->nomor_nota_dinas;
+        $tiket->jenispelapor = $request->jenis_pelapor;
+
+        if($request->jenis_pelapor == "Lain-lain"){
+            $lain = new PelaporLain();
+            $lain->nama = $request->pelapor_lain;
+            $lain->fraksi = $request->unit_kerja;
+            $lain->gedung = $request->gedung;
+            $lain->lantai = $request->lantai;
+            $lain->ruang = $request->ruangan;
+            $lain->telp = $request->telepon_ruangan;
+            $lain->save();
+            $tiket->pelapor = $lain->id;
+        }else{
+            $tiket->pelapor = $request->pelapor;
+        }
+
+        $tiket->phone_pelapor = $request->phone_pelapor;
+        $tiket->email_pelapor = $request->email_pelapor;
+        $tiket->permasalahan = $request->permasalahan;
+        $tiket->kasus = $request->kasus;
+        $tiket->barang = $request->barang;
+        $tiket->jumlah = $request->jumlah;
+
+        $tiket->petugas = $request->petugas;
+        $tiket->status = $request->status;
+        $tiket->jenis = $request->jenis;
+        $tiket->save();
+
+        if($request->kasus == 1){
+            $bar = new BarangKeluar();
+            $bar->tiket_id = $tiket->id;
+            $bar->barang_id = $request->barang;
+            $bar->jumlah = $request->jumlah;
+            $bar->save();
+        }
     }
 
     public function tiket_close(Request $request){

@@ -27,11 +27,11 @@
                     </div>
                     <div class="form-row mt-5">
                         <div class="col-md-6">
-                            <select class="form-control select2" name="petugas" required>
+                            <select class="form-control select3" name="petugas" required>
                                 <option selected class="bg-dark-100 text-white" disabled>Petugas</option>
-                                @foreach($petugas as $pt)
-                                    <option value="{{$pt->id}}">{{$pt->nama}}</option>
-                                @endforeach
+{{--                                @foreach($petugas as $pt)--}}
+{{--                                    <option value="{{$pt->id}}">{{$pt->nama}}</option>--}}
+{{--                                @endforeach--}}
                             </select>
                         </div>
                         <div class="col-md-6">

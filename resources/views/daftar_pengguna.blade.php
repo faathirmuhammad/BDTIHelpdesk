@@ -2,7 +2,11 @@
 @section('title', 'Daftar Pengguna')
 @section('content')
     <div class="row">
-        <div class="col-md-9">
+        @if(\Illuminate\Support\Facades\Auth::user()->role == "ticketing")
+            <div class="col-md-12">
+        @else
+            <div class="col-md-9">
+        @endif
             <section class="hk-sec-wrapper">
                 <div class="row">
                     <div class="col-sm">
@@ -14,7 +18,9 @@
                                     <th>Nama</th>
                                     <th>Role</th>
                                     <th>Email</th>
-                                    <th class="text-center">Aksi</th>
+                                    @if(\Illuminate\Support\Facades\Auth::user()->role != "ticketing")
+                                        <th class="text-center">Aksi</th>
+                                    @endif
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -28,6 +34,7 @@
                                         <td>{{$pet->name}}</td>
                                         <td>{{$pet->role}}</td>
                                         <td>{{$pet->email}}</td>
+                                        @if(\Illuminate\Support\Facades\Auth::user()->role != "ticketing")
                                         <td class="d-flex justify-content-center">
                                             <a  href="{{route('pengguna_edit', $pet->id)}}" class="btn btn-gradient-primary btn-sm"><i class="fa fa-pencil"></i></a>
                                             <form action="{{route('pengguna_delete')}}" method="POST">
@@ -36,6 +43,7 @@
                                                 <button type="submit" class="ml-1 btn btn-gradient-danger btn-sm"><i class="fa fa-trash"></i></button>
                                             </form>
                                         </td>
+                                        @endif
                                     </tr>
                                     @php $x++ @endphp
                                 @endforeach
@@ -46,7 +54,9 @@
                                     <th>Nama</th>
                                     <th>Role</th>
                                     <th>Email</th>
+                                    @if(\Illuminate\Support\Facades\Auth::user()->role != "ticketing")
                                     <th class="text-center">Aksi</th>
+                                    @endif
                                 </tr>
                                 </tfoot>
                             </table>
@@ -55,6 +65,7 @@
                 </div>
             </section>
         </div>
+        @if(\Illuminate\Support\Facades\Auth::user()->role != "ticketing")
         <div class="col-md-3">
             <section class="hk-sec-wrapper">
                 <form action="{{route('pengguna_new')}}" method="POST">
@@ -80,5 +91,6 @@
                 </form>
             </section>
         </div>
+        @endif
     </div>
 @endsection
