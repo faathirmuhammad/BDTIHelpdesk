@@ -3,6 +3,8 @@
 @section('content')
     <form action="{{route('update_tiket')}}" method="POST">
         @csrf
+        <input type="hidden" name="id" value="{{$tiket->id}}">
+        <input type="hidden" name="nomor" value="{{$tiket->nomor}}">
         <div class="row">
             <div class="col-xl-8">
                 <section class="hk-sec-wrapper">
